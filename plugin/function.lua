@@ -1,9 +1,9 @@
 local add_command = vim.api.nvim_create_user_command
-local preview = require "preview"
+local preview = require("preview").preview
 local texbuild = require("texbuild").texbuild
 local bibbuild = require("texbuild").bibbuild
 
-add_command('MarkdownPreview', function() preview.preview() end, {})
+add_command('MarkdownPreview', function() preview() end, {})
 
 add_command('Texbuild', function() texbuild() end, {})
 
