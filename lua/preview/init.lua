@@ -1,5 +1,11 @@
 local M = {}
 
-M.preview = require("preview.preview").preview
+local preview = require("preview.preview")
+
+M.MarkdownPreview = preview.MarkdownPreview
+
+M.LatexPdfPreview = preview.LatexPdfPreview
+
+M.Preview = preview.Preview
 
 return M

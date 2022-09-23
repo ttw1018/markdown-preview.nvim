@@ -18,12 +18,12 @@ local function xelatexbuild()
 end
 
 local function bibtexbuild ()
+  -- local root = vim.fn.expand('%:h')
   local name = vim.fn.expand('%:t:r')
   local extension = vim.fn.expand('%:e')
-  local output = vim.fn.expand('%:h') .. '/output'
-  local auxpath = output .. '/' .. name .. '.aux'
+  local auxpath = 'output/' .. name .. '.aux'
   if extension == 'tex' then
-    if os.execute('bibtex '..auxpath) == 0 then
+    if os.execute('bibtex '.. auxpath) == 0 then
       return true
     else
       return false
@@ -34,7 +34,6 @@ local function bibtexbuild ()
 end
 
 function M.texbuild ()
-
   local output = vim.fn.expand('%:h') .. '/output'
   if xelatexbuild() then
     print("✅ build tex success")
@@ -51,10 +50,7 @@ function M.bibbuild()
     os.execute('cp ' .. output .. '/*.pdf ' .. output .. '/..')
   else
     print("❎ xelate -> bibtex -> xelatex -> xelatex build failure")
-
   end
-
-
 end
 
 
